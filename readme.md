@@ -1,7 +1,6 @@
 # Vietnam National Exam Score Analysis & Forecasting (Python Project for Data science)
 
 Dự án này xây dựng **pipeline dữ liệu + phân tích + phát hiện điểm gãy + dự báo** trên dữ liệu điểm thi THPT giai đoạn **2023–2025**, với mục tiêu dự báo xu hướng **2026**.  
-> Lưu ý: thư mục **Dashboard/** không nằm trong phạm vi đánh giá (có thể bỏ qua khi chấm môn).
 
 ---
 
@@ -28,8 +27,6 @@ Dự án này xây dựng **pipeline dữ liệu + phân tích + phát hiện đ
   - `Notebook/ChangePoint.ipynb`
   - `Notebook/Forecast2026.ipynb`
 
-- Report:
-  - `Report/ReportProject.ipynb` (file **duy nhất** để trình bày với giảng viên)
 
 ---
 
@@ -125,15 +122,10 @@ Sau đó mở:
 - `Notebook/ChangePoint.ipynb`
 - `Notebook/Forecast2026.ipynb`
 
-### Report để nộp/báo cáo
-- `Report/ReportProject.ipynb`
-
-**Mẹo quan trọng:**  
-Trong Report, nên có 1 cell đầu “Setup paths” để tự nhận `project_root` và `clean_root` (tránh lỗi đường dẫn khi người khác chạy).
 
 ---
 
-## 6) Liên hệ giữa report và code (để dễ trả lời khi thầy hỏi)
+## 6) Liên hệ giữa report và code 
 
 | Nội dung | File/Module liên quan |
 |---|---|
