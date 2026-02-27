@@ -155,10 +155,4 @@ Chạy lại pipeline:
 python run_pipeline.py
 ```
 
----
 
-## 8) Ghi chú
-- **Dashboard/** không yêu cầu cho phần chấm môn (có thể bỏ qua).
-- Report có thể “lược bớt” bớt hình so với notebook; miễn là report vẫn:
-  1) bám đúng pipeline & code
-  2) có minh họa đủ để giải thích khi bị hỏi.
