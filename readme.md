@@ -99,25 +99,24 @@ ARIMA selected as top-performing model in multiple series
 
 - Counterfactual analysis: linear-trend baseline vs. actual 2025
 
-``
+---
+## 🚀 Quick Start
 
-**🚀 Quick Start**
-
-# Setup environment
+**Setup environment**
 git clone <repo>
 cd PythonProject
 python -m venv .venv
 
-# Windows
+**Windows**
 .venv\Scripts\activate
 
-# macOS/Linux
+**macOS/Linux**
 source .venv/bin/activate
 
 pip install -r requirements.txt
 
-# Run full pipeline (Raw → Clean)
+**Run full pipeline (Raw → Clean)**
 python run_pipeline.py
 
-# Launch notebooks
+**Launch notebooks**
 jupyter lab
