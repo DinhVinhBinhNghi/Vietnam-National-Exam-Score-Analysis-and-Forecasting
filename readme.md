@@ -48,18 +48,12 @@ PythonProject/
 └─ requirements.txt
 ```
 ---
-# 📊 Structural Break Detection
-Goal: Identify regime shifts in time series behavior.
+## 📊 Structural Break Detection
+**Goal**: Identify regime shifts in time series behavior.
 
-Algorithms Implemented:
+**Algorithms Implemented:** PELT (ruptures), CUSUM, Bayesian Online Change Point Detection (BOCPD)
 
-PELT (ruptures)
-
-CUSUM
-
-Bayesian Online Change Point Detection (BOCPD)
-
-Scope:
+**Scope:**
 
 9 subjects | 5 exam blocks | 7 provinces | 21 total time series
 
@@ -69,18 +63,10 @@ Consensus breakpoint detected in 2025 across 21/21 series (PELT).
 
 Structural shift validated using: ANOVA, t-tests, and Cohen’s d effect sizes.
 
-# 📈 Forecasting Framework (2026)
-Feature Engineering:
+## 📈 Forecasting Framework (2026)
+**Feature Engineering:** Lagged rolling means, Post-2025 regime flag, Threshold ratios (rate_ge_5, rate_ge_8), Cross-sectional block share features
 
-Lagged rolling means
-
-Post-2025 regime flag
-
-Threshold ratios (rate_ge_5, rate_ge_8)
-
-Cross-sectional block share features
-
-Models Compared:
+**Models Compared:**
 
 ARIMA
 
@@ -90,7 +76,7 @@ RandomForest
 
 XGBoost (global model)
 
-Evaluation:
+**Evaluation:**
 
 2025 holdout validation
 
@@ -98,23 +84,22 @@ MAE / RMSE / MAPE comparison
 
 Model selection based on lowest MAE
 
-Block Share Forecasting:
+**Block Share Forecasting:**
 
 Multi-output Ridge regression + Softmax normalization
 
 ARIMA selected as top-performing model in multiple series
 
-# 🔬 Statistical Validation
-ANOVA across subjects and blocks
+## 🔬 Statistical Validation
+- ANOVA across subjects and blocks
 
-Post-hoc t-tests
+- Post-hoc t-tests
 
-Effect size interpretation (Weak / Medium / Strong)
+- Effect size interpretation (Weak / Medium / Strong)
 
-Counterfactual analysis: linear-trend baseline vs. actual 2025
+- Counterfactual analysis: linear-trend baseline vs. actual 2025
 
-```
----
+``
 
 **🚀 Quick Start**
 
