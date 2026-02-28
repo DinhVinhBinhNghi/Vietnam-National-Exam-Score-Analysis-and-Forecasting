@@ -44,6 +44,7 @@ PythonProject/
 ├─ Report/                       # Final presentation notebook  
 ├─ run_pipeline.py               # End-to-end ETL orchestrator  
 └─ requirements.txt
+```
 ---
 
 ## Quick Start
@@ -62,9 +63,10 @@ python run_pipeline.py
 jupyter lab  
 # Open: Notebook/EDA.ipynb, ChangePoint.ipynb, Forecast2026.ipynb  
 # For review: Report/ReportProject.ipynb
+```
 ---
 
-📊 Core Analyses & Models
+### 📊 **Core Analyses & Models**
 # 1) Change Point Detection (Structural Break)
 Algorithms: PELT (ruptures), CUSUM, Bayesian Online Change Point Detection (BOCPD).
 
