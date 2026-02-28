@@ -48,7 +48,7 @@ PythonProject/
 └─ requirements.txt
 ```
 ---
-#📊 Structural Break Detection
+# 📊 Structural Break Detection
 Goal: Identify regime shifts in time series behavior.
 
 Algorithms Implemented:
@@ -69,7 +69,7 @@ Consensus breakpoint detected in 2025 across 21/21 series (PELT).
 
 Structural shift validated using: ANOVA, t-tests, and Cohen’s d effect sizes.
 
-#📈 Forecasting Framework (2026)
+# 📈 Forecasting Framework (2026)
 Feature Engineering:
 
 Lagged rolling means
@@ -104,7 +104,7 @@ Multi-output Ridge regression + Softmax normalization
 
 ARIMA selected as top-performing model in multiple series
 
-#🔬 Statistical Validation
+# 🔬 Statistical Validation
 ANOVA across subjects and blocks
 
 Post-hoc t-tests
@@ -115,7 +115,8 @@ Counterfactual analysis: linear-trend baseline vs. actual 2025
 
 ```
 ---
-#🚀 Quick Start
+
+**🚀 Quick Start**
 
 # Setup environment
 git clone <repo>
