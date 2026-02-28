@@ -102,7 +102,7 @@ ARIMA selected as top-performing model in multiple series
 ---
 ## 🚀 Quick Start
 
-**Setup environment**
+**1. Set up Python 3.10+ environment**
 git clone <repo>
 cd PythonProject
 python -m venv .venv
@@ -115,8 +115,15 @@ source .venv/bin/activate
 
 pip install -r requirements.txt
 
-**Run full pipeline (Raw → Clean)**
+**2. Run full ETL pipeline (Raw → Clean)**
 python run_pipeline.py
+_→ Outputs saved to Clean_Data_2023-2025/_
 
-**Launch notebooks**
+**3. Launch notebooks**
 jupyter lab
+Open:
+
+Notebook/EDA.ipynb
+Notebook/ChangePoint.ipynb
+Notebook/Forecast2026.ipynb
+For final review: Report/ReportProject.ipynb
