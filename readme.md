@@ -103,27 +103,33 @@ ARIMA selected as top-performing model in multiple series
 ## 🚀 Quick Start
 
 **1. Set up Python 3.10+ environment**
+
 git clone <repo>
+
 cd PythonProject
+
 python -m venv .venv
 
 **Windows**
+
 .venv\Scripts\activate
 
 **macOS/Linux**
+
 source .venv/bin/activate
 
 pip install -r requirements.txt
 
 **2. Run full ETL pipeline (Raw → Clean)**
+
 python run_pipeline.py
+
 _→ Outputs saved to Clean_Data_2023-2025/_
 
 **3. Launch notebooks**
-jupyter lab
-Open:
 
-Notebook/EDA.ipynb
-Notebook/ChangePoint.ipynb
-Notebook/Forecast2026.ipynb
-For final review: Report/ReportProject.ipynb
+jupyter lab
+
+Open: Notebook/EDA.ipynb, Notebook/ChangePoint.ipynb, Notebook/Forecast2026.ipynb
+
+_For final review: Report/ReportProject.ipynb_
