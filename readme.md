@@ -1,158 +1,90 @@
-# Vietnam National Exam Score Analysis & Forecasting (Python Project for Data science)
+# Vietnam National Exam Score Analysis & Forecasting – A Time-Series ML/DL Project
 
-Dự án này xây dựng **pipeline dữ liệu + phân tích + phát hiện điểm gãy + dự báo** trên dữ liệu điểm thi THPT giai đoạn **2023–2025**, với mục tiêu dự báo xu hướng **2026**.  
-
----
-
-## 1) Mục tiêu & đầu ra
-
-### Mục tiêu
-- Chuẩn hóa dữ liệu điểm thi THPT (Raw → Clean) theo cấu trúc thống nhất.
-- Phân tích mô tả (EDA) theo **môn / khối / tỉnh**.
-- Kiểm định thống kê (ANOVA / t-test) để kiểm tra khác biệt giữa nhóm.
-- Phát hiện **điểm gãy (change point)** (đặc biệt năm 2025).
-- Dự báo **2026** theo:
-  - **môn** (Subject)
-  - **khối/tổ hợp** (Block/Combination share)
-
-### Đầu ra chính
-- Thư mục **Clean_Data_2023-2025/**:
-  - `Subject_Data/`, `Block_Data/`, `Province_Data/`
-  - mỗi thư mục con `CleanData_<name>/` chứa:
-    - `Export_Analysis_*.csv` (summary stats)
-    - `Export_Distribution_*.csv` (phân phối)
-
-- Notebook:
-  - `Notebook/EDA.ipynb`
-  - `Notebook/ChangePoint.ipynb`
-  - `Notebook/Forecast2026.ipynb`
-
+> **Why this matters for quantitative research roles:** > This project demonstrates an end-to-end workflow on noisy, real-world time series data. It encompasses data engineering, statistical hypothesis testing, structural break detection, feature engineering, and multi-model forecasting with rigorous evaluation. The methodologies and analytical mindset applied here translate directly to financial time series analysis and systematic strategy research.
 
 ---
 
-## 2) Cấu trúc thư mục
+## 🎯 Objectives & Deliverables
 
-```
-PythonProject/
-├─ Raw_Data/                       # dữ liệu thô 2023–2025
-├─ Clean_Data_2023-2025/            # dữ liệu đã export theo cấu trúc chuẩn
-├─ Module/                          # ETL + Stats (Load/Process/Analysis/Export/ANOVA)
-│  ├─ Load_Data.py
-│  ├─ Processor_Data.py
-│  ├─ Analysis.py
-│  ├─ Export.py
-│  └─ ANOVA_ttest.py
-├─ Model/                           # Modeling layer
-│  ├─ ChangePoint/                  # phát hiện & phân tích điểm gãy
-│  │  ├─ __init__.py
-│  │  ├─ ChangePointPreparer.py
-│  │  ├─ ChangePointDetector.py
-│  │  └─ ChangePointAnalyzer.py
-│  └─ Forecast/                     # dự báo 2026 (theo môn/khối)
-│     ├─ __init__.py
-│     ├─ ForecastSubjectModel.py
-│     └─ ForecastBlockModel.py
-├─ Notebook/                        # notebook làm việc/triển khai
-│  ├─ EDA.ipynb
-│  ├─ ChangePoint.ipynb
-│  └─ Forecast.ipynb
-├─ Report/                          # notebook báo cáo
-│  └─ ReportProject.ipynb
-├─ run_pipeline.py                  # chạy end-to-end: Load → Process → Export
-├─ requirements.txt                 # dependencies
-└─ installation.txt                 # hướng dẫn cài đặt
+### Objectives
+* **ETL & Normalization:** Ingest multi-year, multi-schema exam score files (2023–2025) and produce a clean, analysis-ready dataset.
+* **Exploratory Data Analysis (EDA):** Uncover trends, distributions, and cross-sectional patterns by subject, exam block, and province.
+* **Statistical Testing:** Apply ANOVA and t-tests to validate group differences; compute effect sizes (Cohen’s d) to measure the strength of variations.
+* **Structural Break Detection:** Identify regime shifts (e.g., the 2025 policy change) using advanced algorithms like PELT, CUSUM, and Bayesian Online approaches.
+* **Forecasting 2026:** Build, compare, and tune ARIMA, tree-based models (RandomForest/XGBoost), and linear baselines; evaluate performance using MAE, RMSE, and MAPE.
 
-```
+### Key Deliverables
+* `Clean_Data_2023-2025/`: Standardized CSVs categorized by subject, block, and province.
+* **Analytical Notebooks:** `EDA.ipynb`, `ChangePoint.ipynb`, `Forecast2026.ipynb`.
+* **Consolidated Report:** `Report/ReportProject.ipynb` (A single, runnable presentation summarizing the findings).
 
 ---
 
-## 3) Cài đặt môi trường
+## 🏗️ Architecture
 
-Khuyến nghị: **Python 3.10+** (Windows/Mac/Linux đều được).
-
-### Cách 1 — venv (khuyên dùng)
-```bash
-cd PythonProject
-python -m venv .venv
-
-# Windows
-.venv\Scripts\activate
-# macOS/Linux
-source .venv/bin/activate
-
-pip install -U pip
-pip install -r requirements.txt
-```
-
-### Cách 2 — conda
-```bash
-conda create -n thpt python=3.10 -y
-conda activate thpt
-pip install -r requirements.txt
-```
-
-> Nếu bạn chỉ chạy code `.py` (không mở notebook), có thể bỏ `jupyter`/`notebook`.
-
+```text
+PythonProject/  
+├─ Raw_Data/                     # Raw 2023–2025 inputs  
+├─ Clean_Data_2023-2025/         # Processed outputs  
+├─ Module/                       # ETL + Stats  
+│  ├─ Load_Data.py  
+│  ├─ Processor_Data.py  
+│  ├─ Analysis.py  
+│  ├─ Export.py  
+│  └─ ANOVA_ttest.py  
+├─ Model/                        # Modeling layer  
+│  ├─ ChangePoint/  
+│  │  ├─ ChangePointPreparer.py  
+│  │  ├─ ChangePointDetector.py  
+│  │  └─ ChangePointAnalyzer.py  
+│  └─ Forecast/  
+│     ├─ ForecastSubjectModel.py  
+│     └─ ForecastBlockModel.py  
+├─ Notebook/                     # Exploratory/Development environment  
+├─ Report/                       # Final presentation notebook  
+├─ run_pipeline.py               # End-to-end ETL orchestrator  
+└─ requirements.txt
 ---
 
-## 4) Chạy pipeline dữ liệu (Raw → Clean)
+## Quick Start
 
-Chạy từ thư mục `PythonProject/`:
-
-```bash
-python run_pipeline.py
-```
-
-Kết quả export sẽ được ghi vào:
-- `PythonProject/Clean_Data_2023-2025/`
-
+# 1. Clone and set up Python 3.10+ environment  
+git clone <repo>  
+cd PythonProject  
+python -m venv .venv && source .venv/bin/activate  # Windows: .venv\Scripts\activate  
+pip install -r requirements.txt  
+  
+# 2. Run the full ETL pipeline (Raw → Clean)  
+python run_pipeline.py  
+# → Clean data appears in Clean_Data_2023-2025/  
+  
+# 3. Launch notebooks  
+jupyter lab  
+# Open: Notebook/EDA.ipynb, ChangePoint.ipynb, Forecast2026.ipynb  
+# For review: Report/ReportProject.ipynb
 ---
 
-## 5) Chạy notebook & report
+📊 Core Analyses & Models
+# 1) Change Point Detection (Structural Break)
+Algorithms: PELT (ruptures), CUSUM, Bayesian Online Change Point Detection (BOCPD).
 
-### Mở notebook
-```bash
-jupyter notebook
-# hoặc
-jupyter lab
-```
+Scope: Analyzed 9 subjects, 5 exam blocks, across 7 provinces.
 
-Sau đó mở:
-- `Notebook/EDA.ipynb`
-- `Notebook/ChangePoint.ipynb`
-- `Notebook/Forecast2026.ipynb`
+Findings: Identified a consensus breakpoint in 2025 across 21/21 series (using PELT), with robust statistical validation via t-tests and Cohen’s d.
 
+# 2) Forecasting 2026
+Features Engineered: Lagged means, post-2025 structural break flags, and threshold rates (rate_ge_5, rate_ge_8).
 
----
+Models Developed: ARIMA, Random Forest, XGBoost (global model), and Linear baselines for each subject.
 
-## 6) Liên hệ giữa report và code 
+Evaluation & Selection: Evaluated via MAE/RMSE/MAPE on a 2025 holdout set. The final model selection was optimized for the lowest MAE.
 
-| Nội dung | File/Module liên quan |
-|---|---|
-| Load & chuẩn hóa | `Module/Load_Data.py`, `Module/Processor_Data.py` |
-| Export clean | `Module/Export.py`, `run_pipeline.py` |
-| EDA theo môn/khối/tỉnh | `Module/Analysis.py` |
-| ANOVA / t-test | `Module/ANOVA_ttest.py` |
-| Change point | `Model/ChangePointPreparer.py`, `ChangePointDetector.py`, `ChangePointAnalyzer.py` |
-| Forecast 2026 | `Model/ForecastSubjectModel.py`, `Model/ForecastBlockModel.py` |
+Block Share Forecasts: Implemented multi-output regression (Ridge + Softmax), with ARIMA ultimately selected as the top performer.
 
----
+# 3) Statistical Rigor
+Conducted comprehensive ANOVA across subjects/blocks followed by post-hoc t-tests.
 
-## 7) Troubleshooting (lỗi hay gặp)
+Provided clear effect size interpretations (Weak/Medium/Strong).
 
-### `NameError: project_root is not defined`
-Bạn cần chạy cell “Setup paths” **trước** các cell dùng `project_root/clean_root`.
-
-### Thiếu thư viện khi import (ví dụ `xgboost`, `ruptures`)
-Chạy lại:
-```bash
-pip install -r requirements.txt
-```
-
-### Không thấy file export trong Clean_Data_2023-2025
-Chạy lại pipeline:
-```bash
-python run_pipeline.py
-```
-
+Counterfactual Analysis: Compared linear trend "what-if" scenarios against actual 2025 data to quantify the impact of regime shifts.
 
